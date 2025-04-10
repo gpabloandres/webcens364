@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENS N° 364 - Ushuaia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #1A2526;
+            scroll-behavior: smooth;
+        }
+
+        /* Navegación */
+        header {
+            position: fixed;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #0055A4;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFC107;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #0055A4;
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #inicio {
+            background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            background-attachment: fixed;
+        }
+
+        #inicio h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #inicio p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #FFC107;
+            color: #1A2526;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #28A745;
+            color: white;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #0055A4;
+            text-align: center;
+        }
+
+        /* Diferenciación de secciones */
+        #nosotros {
+            background: #f8f9fa;
+            border-left: 5px solid #0055A4;
+        }
+
+        #propuesta {
+            background: #fff;
+            border-left: 5px solid #FFC107;
+        }
+
+        #inscripcion {
+            background: #f8f9fa;
+            border-left: 5px solid #28A745;
+        }
+
+        #contacto {
+            background: #fff;
+            border-left: 5px solid #0055A4;
+        }
+
+        /* Tarjetas */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: #0055A4;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            color: #1A2526;
+            margin-bottom: 10px;
+        }
+
+        /* Galería */
+        #galeria .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        #galeria .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        #galeria .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        #galeria .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        #galeria .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 85, 164, 0.8);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        #galeria .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+
+        /* Formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Redes sociales */
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: #0055A4;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #FFC107;
+        }
+
+        /* Footer */
+        footer {
+            background: #0055A4;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                display: none;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            #inicio h1 {
+                font-size: 32px;
+            }
+
+            #inicio p {
+                font-size: 16px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo-cens364.png" alt="CENS 364">
+            </div>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#propuesta">Propuesta Educativa</a></li>
+                <li><a href="#inscripcion">Inscripción</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Inicio -->
+    <section id="inicio">
+        <h1>¡Terminá tus estudios secundarios!</h1>
+        <p>En el CENS N° 364 te ofrecemos una educación flexible y adaptada a tus necesidades como adulto.</p>
+        <a href="#propuesta" class="btn">Conocé más</a>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros">
+        <h2>¿Quiénes somos?</h2>
+        <p><i class="fas fa-school"></i> El <strong>C</strong>entro <strong>E</strong>ducativo de <strong>N</strong>ivel <strong>S</strong>ecundario N° 364 (CENS N° 364) es una institución pública de Ushuaia, Tierra del Fuego AeIAS, destinada a personas mayores de 18 años que desean iniciar o completar sus estudios secundarios.</p>
+    </section>
+
+    <!-- Propuesta Educativa -->
+    <section id="propuesta">
+        <h2>Propuesta Educativa</h2>
+        <p>Ofrecemos dos modalidades de cursado:</p>
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Presencial</h3>
+                <p>Clases de 18:35 a 22:40 h en Av. Alem y Río Negro.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop"></i>
+                <h3>Semipresencial</h3>
+                <p>Estudio con tutorías y material modular.</p>
+            </div>
+            <div class="card">
+                <i class="fa fa-handshake"></i>
+                <h3>Modalidad de Educación en Contexto de Privación de la Libertad</h3>
+                <p>Estudio con tutorías y material modular.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <p>Títulos (para la modalidad Presencial): <strong>Perito Auxiliar en Seguridad e Higiene en el Trabajo</strong> o <strong>Perito Auxiliar en Telecomunicaciones</strong> (3 años).</p>
+        <p>Títulos (para la modalidad Semipresencial): <strong>Perito Auxiliar en Seguridad e Higiene en el Trabajo</strong> (3 años).</p>
+    </section>
+
+    <!-- Inscripción -->
+    <section id="inscripcion">
+        <h2>Requisitos de Inscripción</h2>
+        <p>Para inscribirte necesitas:</p>
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-user-check"></i>
+                <h3>Edad</h3>
+                <p>Ser mayor de 18 años.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-id-card"></i>
+                <h3>Documentación</h3>
+                <p>DNI y Analítico estudios cursados.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate"></i>
+                <h3>Estudios</h3>
+                <p>Certificado de estudios primarios completos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria">
+        <h2>Galería de Imágenes</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images\imageAulaPresencialCens364.jpg" alt="Aula del CENS">
+                <div class="caption">clase presencial</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images\imageAulaSemipresencialCens364.jpg" alt="Estudiantes en el CENS">
+                <div class="caption">Clase semipresencial</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Biblioteca del CENS">
+                <div class="caption">Biblioteca</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images\imageFachadaCens364.jpg" alt="Fachada del CENS">
+                <div class="caption">Fachada del centro</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Dejanos tu consulta aquí!</p>
+        <form action="https://formspree.io/f/{TU_ID_FORMSPREE}" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+        <br><br>
+        <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Alem 3902 (esquina Av. Alem y Río Negro)<br>
+           <i class="fas fa-envelope"></i> Email: cens364@tdf.edu.ar<br>
+           <i class="fas fa-phone"></i> Teléfono: 2901-555702</p>
+        <div class="social-links">
+            <a href="https://facebook.com/cens364.redes" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/cens364.redes" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025 CENS N° 364 - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navUl = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+        });
+
+        // Animación al hacer scroll
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight * 0.8) {
+                    section.style.opacity = '1';
+                } else {
+                    section.style.opacity = '0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

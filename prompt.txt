@@ -1,0 +1,4 @@
+Crear un sitio web institucional completo para el centro de estudios secundarios para adultos denominado CENS N° 364. El objetivo del sitio
+es brindar la información necesaria para que un adulto que desee finalizar sus estudios secundarios se interese en recibir
+información en el centro. El sitio debe ser del tipo only one page, moderno, ágil y responsive.
+Para completar el contenido del sitio, utiliza todo el contenido del sitio https://docentesticcens364.jimdofree.com/ 
