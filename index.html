@@ -221,19 +221,17 @@
             transform: translateY(0);
         }
 
-        /* Formulario */
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 500px;
+        /* Formulario de contacto (Google Forms) */
+        #contacto .form-container {
+            max-width: 640px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        form input, form textarea {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        #contacto .form-container iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
         }
 
         /* Redes sociales */
@@ -410,13 +408,9 @@
     <!-- Contacto -->
     <section id="contacto">
         <h2>Contacto</h2>
-        <p>Dejanos tu consulta aquí!</p>
-        <form action="https://formspree.io/f/{TU_ID_FORMSPREE}" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
-            <button type="submit" class="btn">Enviar</button>
-        </form>
+        <div class="form-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdbr9OhqNxHuw3q7DUTuZq-g_YWriwVhFiR99upqt2loQwTtg/viewform?embedded=true" width="640" height="689" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        </div>
         <br><br>
         <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Alem 3902 (esquina Av. Alem y Río Negro)<br>
            <i class="fas fa-envelope"></i> Email: cens364@tdf.edu.ar<br>
