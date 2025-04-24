@@ -243,6 +243,35 @@
             border: none;
         }
 
+        /* Código QR */
+        #contacto .qr-code-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #contacto .qr-code-container img {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #0055A4;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #contacto .qr-code-container p {
+            font-size: 16px;
+            color: #1A2526;
+        }
+
+        #contacto .qr-code-container a {
+            color: #0055A4;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        #contacto .qr-code-container a:hover {
+            color: #FFC107;
+        }
+
         /* Redes sociales */
         .social-links {
             margin-top: 20px;
@@ -424,6 +453,11 @@
         <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Alem 3902 (esquina Av. Alem y Río Negro)<br>
            <i class="fas fa-envelope"></i> Email: cens364@tdf.edu.ar<br>
            <i class="fas fa-phone"></i> Teléfono: 2901-555702</p>
+        <div class="qr-code-container">
+            <img src="images/qr-code-cens364.png" alt="Código QR para acceder al sitio">
+            <p>Escanea este código QR para acceder al sitio desde tu dispositivo móvil.</p>
+            <p><a href="images/qr-code-cens364.png" download>Descargar código QR</a></p>
+        </div>
         <div class="social-links">
             <a href="https://facebook.com/cens364.redes" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://instagram.com/cens364.redes" target="_blank"><i class="fab fa-instagram"></i></a>
